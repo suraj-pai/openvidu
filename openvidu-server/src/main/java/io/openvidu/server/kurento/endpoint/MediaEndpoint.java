@@ -247,9 +247,9 @@ public abstract class MediaEndpoint {
 	protected void internalEndpointInitialization(final CountDownLatch endpointLatch) {
 		if (this.isWeb()) {
 			WebRtcEndpoint.Builder builder = new WebRtcEndpoint.Builder(pipeline);
-			/*
-			 * if (this.dataChannels) { builder.useDataChannels(); }
-			 */
+			
+			if (this.dataChannels) { builder.useDataChannels(); }
+			
 			builder.buildAsync(new Continuation<WebRtcEndpoint>() {
 				@Override
 				public void onSuccess(WebRtcEndpoint result) throws Exception {
